@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>CSS Font Control</title>
+    <style>
+        #dummy {
+            border-style: solid;
+            border-width: 10px;
+            font-size: 18pt;
+        }
+    </style>
+</head>
+<body>
+    <p id="dummy">This text doesn't really matter, but below you can enter RGB values to change the color of the paragraph and the border.</p>
+    <input type="text" id="red" value="">
+    <input type="text" id="green" value="">
+    <input type="text" id="blue" value="">
+
+    <script>
+        function updateColor() {
+            var red_input = document.getElementById("red").value;
+            var green_input = document.getElementById("green").value;
+            var blue_input = document.getElementById("blue").value;
+            var dummy = document.getElementById("dummy");
+            dummy.style.color = "rgb(" + red_input + "," + green_input + "," + blue_input + ")";
+        }
+
+        var inputs = document.querySelectorAll('input[type="text"]');
+        inputs.forEach(function(input) {
+            input.addEventListener('input', updateColor);
+        });
+    </script>
+</body>
+</html>

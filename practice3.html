@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Password Verification</title>
+    <script>
+        function updateParagraph() {
+            var password1 = document.getElementById("pass1").value;
+            var password2 = document.getElementById("pass2").value;
+            var paragraphOutput = document.getElementById("output1");
+            if ((password1 === password2) && (password1.length >= 8)) {
+                paragraphOutput.textContent = "Valid password/passwords match";
+            } else {
+                paragraphOutput.textContent = "Invalid password/passwords do not match";
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', function () {
+            var inputs = document.querySelectorAll('input[type="text"]');
+            inputs.forEach(function(input) {
+                input.addEventListener('input', updateParagraph);
+            });
+        });
+    </script>
+</head>
+<body>
+    <p>Enter your password twice below:</p>
+    <input type="text" id="pass1" value="">
+    <input type="text" id="pass2" value="">
+    <p id="output1"></p>
+</body>
+</html>
